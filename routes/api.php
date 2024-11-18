@@ -2,6 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VehiculosController;
+use App\Http\Controllers\VehiculoController;
 
-Route::apiResource('/vehiculos', VehiculosController::class);
+Route::apiResource('/vehiculos', VehiculoController::class);
