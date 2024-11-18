@@ -4,48 +4,48 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Vehiculo;
+use App\Models\Vehiculos;
 
-class VehiculoController extends Controller
+class VehiculosController extends Controller
 {
     public function index()
     {
-        return Vehiculo::all(); // Listar todos los productos
+        return Vehiculos::all(); // Listar todos los productos
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre_del_vehiculo' => 'required|string|max:255',
+            'nombe_del_vehiculos' => 'required|string|max:255',
             'categoria' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
         ]);
     
-        $vehiculo = Vehiculo::create($validated);
-        return response()->json($vehiculo, 201);
+        $vehiculos = Vehiculos::create($validated);
+        return response()->json($vehiculos, 201);
     }
 
     public function show($id)
     {
-        return Vehiculo::findOrFail($id); // Mostrar un producto específico
+        return Vehiculos::findOrFail($id); // Mostrar un producto específico
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nombre_del_vehiculo' => 'required|string|max:255',
+            'nombre_del_vehiculos' => 'required|string|max:255',
             'categoria' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
         ]);
     
-        $vehiculo = Vehiculo::findOrFail($id);
-        $vehiculo->update($validated);
-        return response()->json($vehiculo, 200);
+        $vehiculos = Vehiculos::findOrFail($id);
+        $vehiculos->update($validated);
+        return response()->json($vehiculos, 200);
     }
 
     public function destroy($id)
     {
-        $vehiculo = Vehiculo::findOrFail($id);
+        $vehiculos = Vehiculos::findOrFail($id);
         $vehiculo->delete(); // Eliminar el producto
         return response()->json(null, 204);
     }
