@@ -16,7 +16,7 @@ class VehiculoController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombe_del_vehiculo' => 'required|string|max:255',
+            'nombre_del_vehiculo' => 'required|string|max:255',
             'categoria' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
         ]);
